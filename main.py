@@ -39,6 +39,20 @@ while game_is_on:
     my_screen.update()
     ball.move()
 
+#COLLISION WITH THE WALL
+    if ball.ycor() > 278 or ball.ycor() < -278:
+        ball.bounce_y()
 
+#COLLISION WITH THE PADDLE
+    if ball.distance(right_paddle) < 50 and ball.xcor() > 300 or ball.distance(left_paddle) < 50 and ball.xcor() < -300:
+        ball.bounce_x()
+
+#DETECT WHEN THE RIGHT PADDLE MISS THE BALL
+    if ball.xcor() > 380:
+        ball.reset_position()
+
+# DETECT WHEN THE LEFT PADDLE MISS THE BALL
+    if ball.xcor() < -380:
+        ball.reset_position()
 
 my_screen.exitonclick()

@@ -1,5 +1,8 @@
-from turtle import Screen, Turtle
+import time
+from turtle import Screen
 from paddle import Paddle
+from ball import Ball
+
 
 #SCREEN
 my_screen = Screen()
@@ -14,6 +17,8 @@ my_screen.tracer(0)
 right_paddle = Paddle((380, 0))
 left_paddle = Paddle((-380, 0))
 
+#CREATE A Ball
+ball = Ball()
 
 #MOVE THE PADDLES
 my_screen.listen()
@@ -30,7 +35,9 @@ my_screen.onkey(left_paddle.go_down, 's')
 game_is_on = True
 
 while game_is_on:
+    time.sleep(0.1)
     my_screen.update()
+    ball.move()
 
 
 
